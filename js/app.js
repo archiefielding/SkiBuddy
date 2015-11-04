@@ -1,1 +1,1 @@
-var resortSearch = angular.module('resortSearch', ['ngResource']);
+var resortSearch = angular.module('resortSearch', ['ngResource', 'base64']);

@@ -1,4 +1,4 @@
-resortSearch.controller('resortSearchController', ['$http', function($http) {
+resortSearch.controller('resortSearchController', ['$http', '$base64', function($http, $base64) {
   var self = this;
 
   self.searchResults = [];
@@ -7,7 +7,7 @@ resortSearch.controller('resortSearchController', ['$http', function($http) {
     $http({
       method: 'GET',
       url: 'https://api.qalendra.com/assets?date=' + startdate + '&countryCode=' + destination,
-      headers: { 'Authorization': 'Basic 9mpOb6J73PKLrw1Irax2i4pmXy112W6cj2Mo2qtm:' }
+      headers: { 'Authorization': 'Basic OW1wT2I2SjczUEtMcncxSXJheDJpNHBtWHkxMTJXNmNqMk1vMnF0bTo=' }
     }).then(function successCallback(response) {
       self.searchResults = response;
       console.log(self.searchResults)
