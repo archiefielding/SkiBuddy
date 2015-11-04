@@ -3,7 +3,6 @@ resortSearch.controller('resortSearchController', ['$http', function($http) {
 
   self.searchResults = [];
 
-  $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('----myusername----' + ':' + '----mypass---');
   self.doSearch = function(destination, startdate) {
     $http({
       method: 'GET',
