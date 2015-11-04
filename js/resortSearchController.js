@@ -1,0 +1,3 @@
+resortSearch.controller('resortSearchController', [function() {
+
+}]);
