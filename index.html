@@ -13,19 +13,17 @@
 
 <body ng-controller="resortSearchController as search">
   {{ 1+1 }}
-  <div class="col-md-8">
-    <div class="row">
-      <div class="col-md-6">
-        <input type="text" ng-model="destination" placeholder="Enter country, area or whatever you want">
-      </div>
-      <div class="col-md-3">
-        <input type="text" ng-model="startdate" placeholder="Start date">
-      </div>
-      <div class="col-md-3">
-        <input type="text" ng-model="enddate" placeholder="End date">
-      </div>
+  <div class="container-fluid">
+    <div class="col-md-6">
+      <input type="text" ng-model="destination" placeholder="Enter country, area or whatever you want">
     </div>
-    <div class="row">
+    <div class="col-md-3">
+      <input type="text" ng-model="startdate" placeholder="Start date">
+    </div>
+    <div class="col-md-3">
+      <input type="text" ng-model="enddate" placeholder="End date">
+    </div>
+    <div class="col-md-8 text-center">
       <button class="btn btn-danger" ng-click="search.doSearch(destination, startdate, enddate)">SEARCH!</button>
     </div>
   </div>
