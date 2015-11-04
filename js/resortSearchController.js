@@ -8,9 +8,9 @@ resortSearch.controller('resortSearchController', ['$http', function($http) {
       method: 'GET',
       url: 'https://gentle-reaches-8946.herokuapp.com/',
       params: {date: startdate, countryCode: destination}
-    }).then(function successCallback(response) {
-      self.searchResults = response;
-      console.log(self.searchResults)
-    });
-  };
+      }).then(function successCallback(response) {
+        self.searchResults = response.data;
+        console.log(self.searchResults)
+      });
+    };
 }]);
