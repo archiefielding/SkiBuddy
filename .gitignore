@@ -13,3 +13,6 @@ package.json
 /bower_components/bootstrap/less
 /bower_components/bootstrap/dist/fonts
 /bower_components/bootstrap/dist/js
+/bower_components/eonasdan-bootstrap-datetimepicker
+/bower_components/moment
+/bower_components/moment-timezone
