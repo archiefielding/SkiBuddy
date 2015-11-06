@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="resortSearch">
+<head>
+  <title>SkiBuddy</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-base64/angular-base64.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/resortSearchController.js"></script>
+  <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript" src="js/dates.js"></script>
+</head>
+
+<body ng-controller="resortSearchController as results" ng-init="results.grabCookies()">
+  <div class="jumbotron">
+    <div class="container-fluid">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" ng-model="destination" class="form-control" placeholder="Destination">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <input type="text" ng-model="startdate" class="form-control" id="datetimepicker1" placeholder="Start Date">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <input type="text" ng-model="enddate" class="form-control" id="datetimepicker2" placeholder="End Date">
+        </div>
+      </div>
+      <div class="col-md-offset-4 col-md-4 text-center">
+        <button class="btn btn-info" ng-click="search.doSearch(destination, startdate, enddate)">Go!</a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="col-md-offset-2 col-md-8">
+      <div class="panel panel-default" ng-repeat="resort in results.searchResults">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{resort.name}}</h3>
+        </div>
+        <div class="panel-body">
+          <div class="pull-left"><img src=""></div>
+          <div class="pull-right">
+            <h2>Overall Score: {{resort.data.predictions.score}}</h2>
+            <h3>SkiBuddy Verdict: {{resort.data.predictions.verdict}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
