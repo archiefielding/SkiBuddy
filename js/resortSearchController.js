@@ -9,7 +9,7 @@ resortSearch.controller('resortSearchController', ['$http', '$cookies', '$locati
       }).then(function successCallback(response) {
         const resorts = angular.fromJson(response);
         const nextthing = JSON.parse(resorts.data[0]);
-        $cookies.put('results', nextthing["data"]);
+        $cookies.put('results', JSON.stringify(nextthing["data"]));
         window.location = '/results.html'
     });
   };

@@ -4,7 +4,9 @@ resortSearch.controller('resultsController', ['$http', '$cookies', function($htt
   self.searchResults = [];
 
   self.grabCookies = function() {
-    self.searchResults = $cookies.get('results')
+    parse = $cookies.get('results');
+    self.searchResults = JSON.parse(parse);
+    console.log(self.searchResults)
   };
 
 }]);
