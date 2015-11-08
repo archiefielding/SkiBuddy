@@ -1,20 +1,11 @@
-resortSearch.controller('resortSearchController', ['$http', '$cookies', '$location', function($http, $cookies, $location) {
+resortSearch.controller('resortSearchController', ['$http', '$cookies', '$location', '$q', function($http, $cookies, $location, $q) {
   var self = this;
 
-  self.doSearch = function(destination, startdate, enddate) {
-    $http({
-      method: 'GET',
-      url: 'https://gentle-reaches-8946.herokuapp.com/',
-      params: {date: startdate, countryCode: destination, endDate: enddate}
-      }).then(function successCallback(response) {
-        const resorts = angular.fromJson(response);
-        const nextthing = JSON.parse(resorts.data[0]);
-        $cookies.put('results', JSON.stringify(nextthing["data"]));
-        window.location = '/results.html'
-    });
+  self.setCookies = function(destination, startdate, enddate) {
+    $cookies.put('destination', destination)
+    $cookies.put('startdate', startdate)
+    $cookies.put('enddate', enddate)
+    window.location.href = './results.html'
   };
 
-  self.grabCookies = function() {
-    self.searchResults = $cookies.get('results')
-  };
 }]);
