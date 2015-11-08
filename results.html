@@ -18,7 +18,7 @@
   <script type="text/javascript" src="js/dates.js"></script>
 </head>
 
-<body ng-controller="resultsController as results" ng-init="results.doSearch()">
+<body ng-controller="resultsController as results" ng-init="results.doSearchCookies()">
   <div class="jumbotron">
     <div class="container-fluid">
       <div class="col-md-6">
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="col-md-offset-4 col-md-4 text-center">
-        <button class="btn btn-info" ng-click="search.doSearch(destination, startdate, enddate)">Go!</a>
+        <button class="btn btn-info" ng-click="results.doSearch(destination, startdate, enddate)">Go!</a>
       </div>
     </div>
   </div>
