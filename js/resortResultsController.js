@@ -3,6 +3,8 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', functio
 
   self.searchResults = [];
 
+  self.resortPositions = [];
+
   self.doSearchCookies = function() {
     $http({
       method: 'GET',
@@ -10,8 +12,10 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', functio
       params: {date: $cookies.get('startdate'), assetId: $cookies.get('assetId')}
       }).then(function successCallback(response) {
         const resortsCookies = angular.fromJson(response);
-        self.searchResults = resortsCookies.data;
-        console.log(self.searchResults)
+        self.searchResults = resortsCookies.data[0];
+        self.resortPositions.push(JSON.parse(self.searchResults).data.location.coords.lat)
+        self.resortPositions.push(JSON.parse(self.searchResults).data.location.coords.lng)
+        console.log(self.positions)
     });
   };
 }]);
