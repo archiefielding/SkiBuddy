@@ -1,4 +1,4 @@
-resortSearch.controller('resultsController', ['$http', '$cookies', function($http, $cookies) {
+resortSearch.controller('resultsController', ['$http', '$cookies', '$location', function($http, $cookies, $location) {
   var self = this;
 
   self.searchResults = [];
@@ -23,6 +23,11 @@ resortSearch.controller('resultsController', ['$http', '$cookies', function($htt
         const resorts = angular.fromJson(response);
         self.searchResults = resorts.data;
     });
+  };
+
+  self.setCookies = function(assetId) {
+    $cookies.put('assetId', assetId)
+    window.location.href = './resortResults.html'
   };
 
 }]);

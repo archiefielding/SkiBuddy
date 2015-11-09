@@ -45,7 +45,7 @@
     <div class="col-md-offset-2 col-md-8">
       <div class="panel panel-default" ng-repeat="resort in results.searchResults">
         <div class="panel-heading">
-          <h3 class="panel-title">{{resort.name}}</h3>
+          <a class="panel-title" href ng-click="results.setCookies(resort.asset_id)">{{resort.name}}</a>
         </div>
         <div class="panel-body">
           <div class="pull-left"><img src=""></div>
@@ -58,5 +58,4 @@
     </div>
   </div>
 </body>
-
 </html>
