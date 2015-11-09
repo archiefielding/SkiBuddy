@@ -1,16 +1,11 @@
-resortSearch.controller('resortSearchController', ['$http', function($http) {
+resortSearch.controller('resortSearchController', ['$http', '$cookies', '$location', '$q', function($http, $cookies, $location, $q) {
   var self = this;
 
-  self.searchResults = [];
+  self.setCookies = function(destination, startdate, enddate) {
+    $cookies.put('destination', destination)
+    $cookies.put('startdate', startdate)
+    $cookies.put('enddate', enddate)
+    window.location.href = './results.html'
+  };
 
-  self.doSearch = function(destination, startdate, enddate) {
-    $http({
-      method: 'GET',
-      url: 'https://gentle-reaches-8946.herokuapp.com/',
-      params: {date: startdate, countryCode: destination, endDate: enddate}
-      }).then(function successCallback(response) {
-        self.searchResults = response.data;
-        console.log(self.searchResults)
-      });
-    };
 }]);

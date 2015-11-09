@@ -9,6 +9,7 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-base64/angular-base64.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="js/app.js"></script>
   <script src="js/resortSearchController.js"></script>
   <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
@@ -21,6 +22,11 @@
   <video autoplay loop poster="img/skibg.jpg" id="bgvid">
     <source src="img/bgvid.mp4" type="video/mp4">
   </video>
+  <div class="container" id="center-vertical">
+    <div class="col-md-offset-3 col-md-6 text-center">
+      <img src="img/logo.png">
+    </div>
+  </div>
   <div class="container" id="vertical-push">
     <div class="col-md-6">
       <div class="form-group">
@@ -38,7 +44,7 @@
       </div>
     </div>
     <div class="col-md-offset-4 col-md-4 text-center">
-      <button class="btn btn-info" ng-click="search.doSearch(destination, startdate, enddate)">Check conditions</button>
+      <button class="btn btn-info" ng-click="search.setCookies(destination, startdate, enddate)">Cookies</button>
     </div>
   </div>
 </body>
