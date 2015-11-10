@@ -2,6 +2,7 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
   var self = this;
 
   self.searchResults = [];
+  self.weatherResults = [];
 
   self.doSearchCookies = function() {
     $http({
@@ -11,23 +12,44 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
       }).then(function successCallback(response) {
         const resortsCookies = angular.fromJson(response);
         self.searchResults = resortsCookies.data[0];
-        self.resortLat = (JSON.parse(self.searchResults).data.location.coords.lat)
-        self.resortLng = (JSON.parse(self.searchResults).data.location.coords.lng)
-        console.log(self.resortLat)
-        console.log(self.resortLng)
-    });
+        self.resortLat = (JSON.parse(self.searchResults).data.location.coords.lat);
+        self.resortLng = (JSON.parse(self.searchResults).data.location.coords.lng);
+        self.resortName = (JSON.parse(self.searchResults).data.name);
+        self.resortCountry = (JSON.parse(self.searchResults).data.location.address.country);
+        console.log(self.searchResults);
+      })
+  };
+
+  self.doWeatherCookies = function() {
+    $http({
+      method: 'GET',
+      url: 'https://gentle-reaches-8946.herokuapp.com/weather',
+      params: {lat: self.resortLat, lng: self.resortLng}
+      }).then(function successCallback(response) {
+        const weatherCookies = angular.fromJson(response);
+        self.weatherResults = weatherCookies.data;
+        console.log(self.weatherResults);
+      })
   };
 
   $scope.$on('mapInitialized', function(event, map) {
     $scope.map = map;
     console.log("GMAPAPI")
-  })
+  });
 
   $scope.lat = function() {
     return self.resortLat;
-  }
+  };
 
   $scope.lng = function() {
     return self.resortLng;
-  }
+  };
+
+  $scope.resortName = function() {
+    return self.resortName;
+  };
+
+  $scope.resortCountry = function() {
+    return self.resortCountry;
+  };
 }]);
