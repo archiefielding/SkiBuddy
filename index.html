@@ -10,7 +10,7 @@
   <script src="bower_components/angular-base64/angular-base64.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
+  <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script> -->
   <script src="js/app.js"></script>
   <script src="js/resortSearchController.js"></script>
   <script src="js/ngAutocomplete.js"></script>
@@ -50,12 +50,12 @@
     </div>
   </div>
   <div ng-controller="autoComplete">
-    <form id="form" role="form">
-      <div class="form-group move-down">
-        <label for="Autocomplete">Autocomplete</label>
-        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" details="details1" options="options1"/>
-      </div>
+  <form id="form" role="form">
+    <div class="form-group move-down">
+      <label for="Autocomplete">Autocomplete</label>
+      <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" details="details1" options="options1"/>
     </div>
+  </div>
 </body>
 
 </html>
