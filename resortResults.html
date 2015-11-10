@@ -21,7 +21,9 @@
 </head>
 <body ng-controller="resortResultsController as resortResults" ng-init="resortResults.doSearchCookies()">
   <div class="container-fluid">
-    <map center="{{lat()}}, {{lng()}}" zoom="8"></map>
+    <map center="{{lat()}}, {{lng()}}" zoom="8">
+      <marker position="{{lat()}}, {{lng()}}"></marker>
+    </map>
   </div>
 </body>
 </html>
