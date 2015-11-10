@@ -3,7 +3,6 @@
 <head>
   <title>SkiBuddy</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -23,28 +22,28 @@
     <source src="img/bgvid.mp4" type="video/mp4">
   </video>
   <div class="container" id="center-vertical">
-    <div class="col-md-offset-3 col-md-6 text-center">
-      <img src="img/logo.png">
-    </div>
-  </div>
-  <div class="container" id="vertical-push">
-    <div class="col-md-6">
-      <div class="form-group">
-        <input type="text" ng-model="destination" class="form-control" placeholder="Destination">
+    <div class="col-md-offset-3 col-md-6">
+      <img src="img/logo.png" width="100%">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="text" ng-model="destination" class="form-control" placeholder="Destination">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" ng-model="startdate" class="form-control" id="datetimepicker1" placeholder="Start Date">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" ng-model="enddate" class="form-control" id="datetimepicker2" placeholder="End Date">
+          </div>
+        </div>
+        <div class="col-md-offset-4 col-md-4 text-center">
+          <button class="btn btn-lg btn-info" ng-click="search.setCookies(destination, startdate, enddate)">Search</button>
+        </div>
       </div>
-    </div>
-    <div class="col-md-3">
-      <div class="form-group">
-        <input type="text" ng-model="startdate" class="form-control" id="datetimepicker1" placeholder="Start Date">
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="form-group">
-        <input type="text" ng-model="enddate" class="form-control" id="datetimepicker2" placeholder="End Date">
-      </div>
-    </div>
-    <div class="col-md-offset-4 col-md-4 text-center">
-      <button class="btn btn-info" ng-click="search.setCookies(destination, startdate, enddate)">Search</button>
     </div>
   </div>
 </body>
