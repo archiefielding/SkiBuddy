@@ -3,6 +3,12 @@ resortSearch.controller('resultsController', ['$http', '$cookies', function($htt
 
   self.searchResults = [];
 
+  this.result1 = '';
+
+  this.options1 = {
+    types: '(regions)'
+  };    this.details1 = '';
+
   self.doSearchCookies = function() {
     $http({
       method: 'GET',

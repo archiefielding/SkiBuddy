@@ -10,7 +10,7 @@ html {
       -ms-text-size-adjust: 100%;
 }
 body {
-  background-color: #fff;
+  margin: 0;
 }
 
 #row-results {
@@ -5072,13 +5072,39 @@ a.badge:focus {
   margin-left: 3px;
 }
 .jumbotron {
-  padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: -50px;
   color: inherit;
+  z-index: 2;
+}
+
+.jumbotron:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url('../../../../img/skibg.jpg');
+  height: 300px;
+  background-size: cover;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.blurry-bg-img {
   background-image: url(../../../../img/skibg.jpg);
   background-size: cover;
+  filter: blur(15px);
+  height: 300px;
+  z-index: 1;
 }
+
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
@@ -5100,7 +5126,6 @@ a.badge:focus {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
     padding-bottom: 48px;
     height: 300px;
   }
