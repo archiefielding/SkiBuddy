@@ -8,4 +8,10 @@ resortSearch.controller('resortSearchController', ['$http', '$cookies', '$locati
     window.location.href = './results.html'
   };
 
-}]);
+  this.result1 = '';
+
+  this.options1 = {
+    types: '(regions)'
+  };    this.details1 = '';
+
+}])

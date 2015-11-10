@@ -30,4 +30,9 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
     window.location.href = './resortResults.html'
   };
 
+  self.assetPage = function(asset) {
+    $cookies.put('asset_id', asset)
+    window.location.href = './asset.html'
+  };
+
 }]);
