@@ -1,9 +1,7 @@
-resortSearch.controller('resortResultsController', ['$http', '$cookies', function($http, $cookies) {
+resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope', function($http, $cookies, $scope) {
   var self = this;
 
   self.searchResults = [];
-
-  self.resortPositions = [];
 
   self.doSearchCookies = function() {
     $http({
@@ -13,9 +11,23 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', functio
       }).then(function successCallback(response) {
         const resortsCookies = angular.fromJson(response);
         self.searchResults = resortsCookies.data[0];
-        self.resortPositions.push(JSON.parse(self.searchResults).data.location.coords.lat)
-        self.resortPositions.push(JSON.parse(self.searchResults).data.location.coords.lng)
-        console.log(self.resortPositions)
+        self.resortLat = (JSON.parse(self.searchResults).data.location.coords.lat)
+        self.resortLng = (JSON.parse(self.searchResults).data.location.coords.lng)
+        console.log(self.resortLat)
+        console.log(self.resortLng)
     });
   };
+
+  $scope.$on('mapInitialized', function(event, map) {
+    $scope.map = map;
+    console.log("GMAPAPI")
+  })
+
+  $scope.lat = function() {
+    return self.resortLat;
+  }
+
+  $scope.lng = function() {
+    return self.resortLng;
+  }
 }]);
