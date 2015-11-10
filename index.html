@@ -9,8 +9,11 @@
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-base64/angular-base64.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/resortSearchController.js"></script>
+  <script src="js/ngAutocomplete.js"></script>
   <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
   <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
@@ -18,12 +21,12 @@
 </head>
 
 <body ng-controller="resortSearchController as search">
-  <video autoplay loop poster="img/skibg.jpg" id="bgvid">
+  <!-- <video autoplay loop poster="img/skibg.jpg" id="bgvid">
     <source src="img/bgvid.mp4" type="video/mp4">
-  </video>
+  </video> -->
   <div class="container" id="center-vertical">
     <div class="col-md-offset-3 col-md-6">
-      <img src="img/logo.png" width="100%">
+      <!-- <img src="img/logo.png" width="100%"> -->
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
@@ -46,6 +49,13 @@
       </div>
     </div>
   </div>
+  <div ng-controller="autoComplete">
+    <form id="form" role="form">
+      <div class="form-group move-down">
+        <label for="Autocomplete">Autocomplete</label>
+        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" details="details1" options="options1"/>
+      </div>
+    </div>
 </body>
 
 </html>
