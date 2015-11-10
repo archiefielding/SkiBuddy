@@ -3,8 +3,8 @@
 <head>
   <title>SkiBuddy</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -20,8 +20,11 @@
 
 <body ng-controller="resultsController as results" ng-init="results.doSearchCookies()">
   <div class="jumbotron">
-    <div class="container-fluid">
-      <div class="col-md-6">
+    <div class="container">
+      <div class="page-header text-center">
+        <h1>Austria</h1>
+      </div>
+      <div class="col-md-4">
         <div class="form-group">
           <input type="text" ng-model="destination" class="form-control" placeholder="Destination">
         </div>
@@ -36,23 +39,27 @@
           <input type="text" ng-model="enddate" class="form-control" id="datetimepicker2" placeholder="End Date">
         </div>
       </div>
-      <div class="col-md-offset-4 col-md-4 text-center">
+      <div class="col-md-2 text-center">
         <button class="btn btn-info" ng-click="results.doSearch(destination, startdate, enddate)">Go!</a>
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="col-md-offset-2 col-md-8">
-      <div class="panel panel-default" ng-repeat="resort in results.searchResults">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{resort.name}}</h3>
-        </div>
-        <div class="panel-body">
-          <div class="pull-left"><img src=""></div>
-          <div class="pull-right">
-            <h2>Overall Score: {{resort.average_rating}}</h2>
-            <h3>SkiBuddy Verdict: Good</h3>
+  <div class="container" id="vertical-spacer">
+    <div class="row" ng-repeat="resort in results.searchResults">
+      <div class="col-md-6">
+        <div class="fix">
+          <img ng-src="img/{{resort.asset_id}}.jpg" width="100%" height="250px">
+          <div class="desc">
+            <h3>{{resort.name}}</h3>
           </div>
+        </div>
+      </div>
+      <div class="right-content">
+        <div class="col-md-6">
+          <p><i class="fa fa-star fa-lg"></i> Overall Score: <strong>{{resort.average_rating}}</strong></p>
+          <p><i class="fa fa-cloud fa-lg"></i> Weather Conditions: <strong>Snowy</strong></p>
+          <p><i class="fa fa-bed fa-lg"></i> Average Hotel Price: <strong>&pound;89</strong></p>
+          <p class="pull-right"><button class="btn btn-lg btn-danger" ng-click="results.assetPage(resort.asset_id)">More details</button>
         </div>
       </div>
     </div>

@@ -25,4 +25,9 @@ resortSearch.controller('resultsController', ['$http', '$cookies', function($htt
     });
   };
 
+  self.assetPage = function(asset) {
+    $cookies.put('asset_id', asset)
+    window.location.href = './asset.html'
+  };
+
 }]);

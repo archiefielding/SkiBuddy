@@ -10,7 +10,34 @@ html {
       -ms-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+  background-color: #fff;
+}
+
+.right-content {
+  margin-top: 40px;
+  font-weight: lighter;
+  font-size: 24px;
+}
+
+.desc {
+  top: 0;
+  color: #fff;
+  left: 30px;
+  position: absolute;
+  width: 100%;
+}
+
+.fix {
+  width: 100%;
+  padding: 0px;
+}
+
+#vertical-spacer {
+  padding-top: 100px;
+}
+
+#padding {
+  padding: 10px;
 }
 
 #center-vertical {
@@ -1306,6 +1333,7 @@ h2,
 h3,
 .h3 {
   font-size: 24px;
+  font-weight: lighter;
 }
 h4,
 .h4 {
@@ -1320,7 +1348,8 @@ h6,
   font-size: 12px;
 }
 p {
-  margin: 0 0 10px;
+  margin: -30px -15px 45px;
+  padding: 0;
 }
 .lead {
   margin-bottom: 20px;
@@ -1405,8 +1434,8 @@ a.text-danger:focus {
   color: #843534;
 }
 .bg-primary {
-  color: #fff;
-  background-color: #337ab7;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 a.bg-primary:hover,
 a.bg-primary:focus {
@@ -1443,7 +1472,6 @@ a.bg-danger:focus {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
 }
 ul,
 ol {
@@ -1644,6 +1672,10 @@ pre code {
 .row {
   margin-right: -15px;
   margin-left: -15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid;
+  border-color: #c2c2c2;
+  padding-bottom: 30px;
 }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
@@ -5038,9 +5070,10 @@ a.badge:focus {
 .jumbotron {
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-bottom: 30px;
+  margin-bottom: -50px;
   color: inherit;
-  background-color: #eee;
+  background-image: url(../../../../img/skibg.jpg);
+  background-size: cover;
 }
 .jumbotron h1,
 .jumbotron .h1 {
@@ -5065,6 +5098,7 @@ a.badge:focus {
   .jumbotron {
     padding-top: 48px;
     padding-bottom: 48px;
+    height: 300px;
   }
   .container .jumbotron,
   .container-fluid .jumbotron {
@@ -5074,6 +5108,7 @@ a.badge:focus {
   .jumbotron h1,
   .jumbotron .h1 {
     font-size: 63px;
+    font-weight: lighter;
   }
 }
 .thumbnail {
@@ -5534,7 +5569,7 @@ button.list-group-item-danger.active:focus {
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 .panel-body {
-  padding: 15px;
+  padding: 0px;
 }
 .panel-heading {
   padding: 10px 15px;
@@ -6593,6 +6628,7 @@ button.close {
 }
 .pull-right {
   float: right !important;
+  margin-right: 10px;
 }
 .pull-left {
   float: left !important;
