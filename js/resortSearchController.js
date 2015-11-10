@@ -8,4 +8,10 @@ resortSearch.controller('resortSearchController', ['$http', '$cookies', '$locati
     window.location.href = './results.html'
   };
 
+}])
+  .controller('autoComplete', ['$scope', function($scope){
+    $scope.result1 = '';
+    $scope.options1 = {
+      types: '(regions)'
+    };    $scope.details1 = '';
 }]);
