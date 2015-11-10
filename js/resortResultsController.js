@@ -27,8 +27,8 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
       params: {lat: self.resortLat, lng: self.resortLng}
       }).then(function successCallback(response) {
         const weatherCookies = angular.fromJson(response);
-        self.weatherResults = weatherCookies.data;
-        console.log(self.weatherResults);
+        self.weatherResults = weatherCookies.data[0];
+        console.log(JSON.parse(self.weatherResults).data.weather);
       })
   };
 
