@@ -2,6 +2,7 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
   var self = this;
 
   self.searchResults = [];
+  self.weatherResults = [];
 
   this.result1 = '';
 
@@ -17,7 +18,6 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
       }).then(function successCallback(response) {
         const resortsCookies = angular.fromJson(response);
         self.searchResults = resortsCookies.data;
-        console.log(self.searchResults)
     });
   };
 
@@ -39,9 +39,15 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
     window.location.href = './resortResults.html'
   };
 
-  self.assetPage = function(asset) {
-    $cookies.put('asset_id', asset)
-    window.location.href = './asset.html'
+  self.doWeatherSearch = function(lat, lng) {
+    $http({
+      method: 'GET',
+      url: 'https://gentle-reaches-8946.herokuapp.com/weather',
+      params: {lat: lat, lng: lng}
+      }).then(function successCallback(response) {
+        const weather = angular.fromJson(response);
+        self.weatherResults = weather.data[0]
+        self.weatherCond = JSON.parse(self.weatherResults).data.weather[0].hourly[0].bottom[0].weatherDesc[0].value;
+    });
   };
-
 }]);
