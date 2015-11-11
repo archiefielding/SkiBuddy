@@ -32,22 +32,24 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
     });
   };
 
-  self.setCookies = function(assetId, lat, lng) {
-    $cookies.put('assetId', assetId)
-    $cookies.put('lat', lat)
-    $cookies.put('lng', lng)
+  self.setCookies = function(asset) {
+    $cookies.put('assetId', asset.asset_id)
+    $cookies.put('lat', asset.lat)
+    $cookies.put('lng', asset.lng)
+    $cookies.put('score', asset.average_rating)
+    $cookies.put('weather_conditions', asset.weather_conditions)
     window.location.href = './resortResults.html'
   };
-
-  self.doWeatherSearch = function(lat, lng) {
-    $http({
-      method: 'GET',
-      url: 'https://gentle-reaches-8946.herokuapp.com/weather',
-      params: {lat: lat, lng: lng}
-      }).then(function successCallback(response) {
-        const weather = angular.fromJson(response);
-        self.weatherResults = weather.data[0]
-        self.weatherCond = JSON.parse(self.weatherResults).data.weather[0].hourly[0].bottom[0].weatherDesc[0].value;
-    });
-  };
+  //
+  // self.doWeatherSearch = function(lat, lng) {
+  //   $http({
+  //     method: 'GET',
+  //     url: 'https://gentle-reaches-8946.herokuapp.com/weather',
+  //     params: {lat: lat, lng: lng}
+  //     }).then(function successCallback(response) {
+  //       const weather = angular.fromJson(response);
+  //       self.weatherResults = weather.data[0];
+  //       self.weatherCond = JSON.parse(self.weatherResults).data.weather[0].hourly[0].bottom[0].weatherDesc[0].value;
+  //   });
+  // };
 }]);

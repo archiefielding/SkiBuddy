@@ -1162,7 +1162,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #fff;
   text-decoration: none;
 }
 a:hover,
@@ -1334,15 +1334,23 @@ h1,
 }
 h2,
 .h2 {
-  font-size: 30px;
+  font-size: 26px;
+  font-weight: lighter;
 }
 h3,
 .h3 {
   font-size: 24px;
   font-weight: lighter;
+<<<<<<< HEAD
   background-color: rgba(0,0,0,0.6);
   display: inline-block;
   padding: 8px 16px 8px 22px;
+=======
+  background: rgba(0,0,0,0.6);
+  display: inline-block;
+  padding: 5px 5px 5px 15px;
+  margin-left: -15px;
+>>>>>>> fc1ab5a4506d165a635bd8de0cb8c3fb0d49fd3c
 }
 h4,
 .h4 {
@@ -5142,6 +5150,7 @@ a.badge:focus {
   .jumbotron .h1 {
     font-size: 63px;
     font-weight: lighter;
+    color: #fff;
   }
 }
 .thumbnail {

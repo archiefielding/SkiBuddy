@@ -12,11 +12,8 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
       }).then(function successCallback(response) {
         const resortsCookies = angular.fromJson(response);
         self.searchResults = resortsCookies.data[0];
-        self.resortLat = (JSON.parse(self.searchResults).data.location.coords.lat);
-        self.resortLng = (JSON.parse(self.searchResults).data.location.coords.lng);
         self.resortName = (JSON.parse(self.searchResults).data.name);
         self.resortCountry = (JSON.parse(self.searchResults).data.location.address.country);
-        console.log(self.searchResults)
       })
   };
 
@@ -28,7 +25,6 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
       }).then(function successCallback(response) {
         const weatherCookies = angular.fromJson(response);
         self.weatherResults = weatherCookies.data[0];
-        console.log(JSON.parse(self.weatherResults).data.weather[0].hourly[0].bottom[0].weatherDesc[0].value)
       })
   };
 
@@ -36,6 +32,14 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
     $scope.map = map;
     console.log("GMAPAPI")
   });
+
+  $scope.averageScore = function() {
+    return $cookies.get('score')
+  };
+
+  $scope.weatherConditions = function() {
+    return $cookies.get('weather_conditions')
+  };
 
   $scope.lat = function() {
     return self.resortLat;
