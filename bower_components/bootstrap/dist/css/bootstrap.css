@@ -5142,6 +5142,7 @@ a.badge:focus {
   .jumbotron .h1 {
     font-size: 63px;
     font-weight: lighter;
+    color: #fff;
   }
 }
 .thumbnail {

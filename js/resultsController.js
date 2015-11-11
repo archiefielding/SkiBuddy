@@ -32,10 +32,10 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
     });
   };
 
-  self.setCookies = function(assetId, lat, lng) {
-    $cookies.put('assetId', assetId)
-    $cookies.put('lat', lat)
-    $cookies.put('lng', lng)
+  self.setCookies = function(asset) {
+    $cookies.put('assetId', asset.asset_id)
+    $cookies.put('lat', asset.lat)
+    $cookies.put('lng', asset.lng)
     window.location.href = './resortResults.html'
   };
 
