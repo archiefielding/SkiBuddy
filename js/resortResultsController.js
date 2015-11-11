@@ -16,7 +16,7 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
         self.resortLng = (JSON.parse(self.searchResults).data.location.coords.lng);
         self.resortName = (JSON.parse(self.searchResults).data.name);
         self.resortCountry = (JSON.parse(self.searchResults).data.location.address.country);
-        console.log(self.searchResults);
+        console.log(JSON.parse(self.searchResults))
       })
   };
 
@@ -24,11 +24,12 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
     $http({
       method: 'GET',
       url: 'https://gentle-reaches-8946.herokuapp.com/weather',
-      params: {lat: self.resortLat, lng: self.resortLng}
+      params: {lat: 40.000, lng: 10.000}
       }).then(function successCallback(response) {
         const weatherCookies = angular.fromJson(response);
         self.weatherResults = weatherCookies.data[0];
-        console.log(JSON.parse(self.weatherResults).data.weather);
+        console.log(self.weatherResults)
+        console.log(self.resortLat)
       })
   };
 

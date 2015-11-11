@@ -25,12 +25,12 @@
   <div class="jumbotron">
     <h2>{{resortName()}}, {{resortCountry()}}</h2>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid" ng-init="resortResults.doWeatherCookies()">
     <div class="panel panel-default">
       <div class="panel-heading">
         <a class="panel-title">Weather Forecast</a>
       </div>
-      <div class="panel-body" ng-init="resortResults.doWeatherCookies()">
+      <div class="panel-body">
         <div class="pull-left">
           <h5>Hello</h5>
           <img src="">

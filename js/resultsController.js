@@ -17,6 +17,7 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
       }).then(function successCallback(response) {
         const resortsCookies = angular.fromJson(response);
         self.searchResults = resortsCookies.data;
+        console.log(JSON.parse(self.searchResults))
     });
   };
 
