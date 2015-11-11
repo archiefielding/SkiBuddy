@@ -16,7 +16,6 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
         self.resortLng = (JSON.parse(self.searchResults).data.location.coords.lng);
         self.resortName = (JSON.parse(self.searchResults).data.name);
         self.resortCountry = (JSON.parse(self.searchResults).data.location.address.country);
-        console.log(self.searchResults)
       })
   };
 
