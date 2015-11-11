@@ -18,6 +18,10 @@ body {
   border-color: #c2c2c2;
 }
 
+#map {
+  height: 100%;
+}
+
 .right-content {
   margin-top: 40px;
   font-weight: lighter;
