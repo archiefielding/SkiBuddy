@@ -36,6 +36,7 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
     $cookies.put('assetId', asset.asset_id)
     $cookies.put('lat', asset.lat)
     $cookies.put('lng', asset.lng)
+    $cookies.put('score', asset.average_rating)
     window.location.href = './resortResults.html'
   };
 

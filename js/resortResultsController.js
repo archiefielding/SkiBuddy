@@ -12,8 +12,6 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
       }).then(function successCallback(response) {
         const resortsCookies = angular.fromJson(response);
         self.searchResults = resortsCookies.data[0];
-        self.resortLat = (JSON.parse(self.searchResults).data.location.coords.lat);
-        self.resortLng = (JSON.parse(self.searchResults).data.location.coords.lng);
         self.resortName = (JSON.parse(self.searchResults).data.name);
         self.resortCountry = (JSON.parse(self.searchResults).data.location.address.country);
       })
@@ -35,6 +33,10 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
     $scope.map = map;
     console.log("GMAPAPI")
   });
+
+  $scope.averageScore = function() {
+    return $cookies.get('score')
+  };
 
   $scope.lat = function() {
     return self.resortLat;

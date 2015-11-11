@@ -4,8 +4,8 @@
   <title>SkiBuddy</title>
   <script src="http://maps.google.com/maps/api/js"></script>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -30,6 +30,17 @@
     </div>
   </div>
   <div class="container" id="vertical-spacer" ng-init="resortResults.doWeatherCookies()">
+    <div class="row" id="row-results">
+      <div class="col-md-4">
+        <h2><i class="fa fa-star fa-lg"></i> Overall Score: <strong>{{averageScore()}}</strong></h2>
+      </div>
+      <div class="col-md-4">
+        <h2><i class="fa fa-cloud fa-lg"></i> Weather Conditions: <strong>{{resortResults.searchResults.average_rating}}</strong></h2>
+      </div>
+      <div class="col-md-4">
+        <h2><i class="fa fa-bed fa-lg"></i> Average Hotel Price: <strong>{{resortResults.searchResults.average_rating}}</strong></h2>
+      </div>
+    </div>
     <div class="row" id="row-results">
       <div class="col-md-12">
         <p>Weather Forecast</p>
