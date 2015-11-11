@@ -25,7 +25,6 @@ resortSearch.controller('resortResultsController', ['$http', '$cookies', '$scope
       }).then(function successCallback(response) {
         const weatherCookies = angular.fromJson(response);
         self.weatherResults = weatherCookies.data[0];
-        console.log(JSON.parse(self.weatherResults).data.weather[0].hourly[0].bottom[0].weatherDesc[0].value)
       })
   };
 
