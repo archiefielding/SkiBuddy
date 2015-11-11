@@ -17,7 +17,7 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
       }).then(function successCallback(response) {
         const resortsCookies = angular.fromJson(response);
         self.searchResults = resortsCookies.data;
-        console.log(JSON.parse(self.searchResults))
+        console.log(self.searchResults)
     });
   };
 
@@ -32,8 +32,10 @@ resortSearch.controller('resultsController', ['$http', '$cookies', '$location', 
     });
   };
 
-  self.setCookies = function(assetId) {
+  self.setCookies = function(assetId, lat, lng) {
     $cookies.put('assetId', assetId)
+    $cookies.put('lat', lat)
+    $cookies.put('lng', lng)
     window.location.href = './resortResults.html'
   };
 
